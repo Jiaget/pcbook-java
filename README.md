@@ -1,5 +1,5 @@
 
-# Java 部分
+# 0. 环境&依赖 配置
 - 下载安装Java环境： 1.jdk 2.IDEA
 - 新建项目选择 gradle框架。
 - 在gradle文件里的`plugins`添加`id "com.google.protobuf" version "0.8.15"` 让`gradle`处理`protobuf`的版本下载
@@ -52,5 +52,17 @@ option java_multiple_files = true;
 ```
 
 最后，将两部分的proto代码统一。
+
+# 1. 使用java生成数据 （binary， json）
+- 在 `sample/Generator.java` 编写生成随机数据代码
+- 在 `serializer/Serializer.java` 编写写入二进制文件，读取二进制文件，写入json文件，三个函数。
+
+# 2. 客户端、服务端代码
+- 基本逻辑和go端一致。
+- 启动 java 服务端， go 客户端连接成功。
+- 启动 go 服务端， java 客户端连接成功。
+
+这就是 gRPC 第一类，简单 rpc。
+
 
 

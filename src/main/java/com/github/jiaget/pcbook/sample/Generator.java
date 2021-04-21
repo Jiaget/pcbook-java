@@ -5,6 +5,7 @@ import com.google.protobuf.Timestamp;
 
 import java.time.Instant;
 import java.util.Random;
+import java.util.UUID;
 
 public class Generator {
     private  Random rand;
@@ -98,7 +99,7 @@ public class Generator {
                 .setWidth(width)
                 .build();
         return Screen.newBuilder()
-                .setSizeCentimeter(randomFloat(13, 17))
+                .setSizeInch(randomFloat(13, 17))
                 .setPanel(randomScreenPanel())
                 .setMultitouch(rand.nextBoolean())
                 .build();
@@ -111,6 +112,7 @@ public class Generator {
 
         int releaseYear = randomInt(2010, 2021);
         return Laptop.newBuilder()
+                .setId(UUID.randomUUID().toString())
                 .setBrand(brand)
                 .setName(name)
                 .setWeightKg(weightKg)
